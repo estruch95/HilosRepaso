@@ -1,7 +1,7 @@
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		//VECTOR DE 100 ENTEROS REALES
 		int vectorDatos[] = new int[100];
 		
@@ -21,10 +21,12 @@ public class Main {
 		System.out.println("Datos = "+vectorDatos.length);
 		procesoMedia = new CalculoMedia("Media", vectorDatos);
 		procesoMedia.start();
+		procesoMedia.join();
 		procesoVmax = new CalculoValorMax("ValorMax", vectorDatos);
 		procesoVmax.start();
+		procesoVmax.join();
 		procesoVmin = new CalculoValorMin("ValorMin", vectorDatos);
 		procesoVmin.start();
-		
+		procesoVmin.join();
 	}
 }
